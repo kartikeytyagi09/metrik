@@ -1,12 +1,13 @@
 import Header from "@/components/Header";
-import {headers} from "next/headers";
+// import {headers} from "next/headers";
 import {redirect} from "next/navigation";
 
 const Layout = async ({ children }: { children : React.ReactNode }) => {
 
+
     return (
         <main className="min-h-screen text-gray-400">
-            <Header/>
+            <Header />
 
             <div className="container py-10">
                 {children}

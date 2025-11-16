@@ -1,8 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
+import UserDropdown from "./UserDropdown";
 import NavItems from "./NavItems";
 
 const Header = async () => {
+    
 
     return (
         <header className="sticky top-0 header">
@@ -13,6 +15,8 @@ const Header = async () => {
                 <nav className="hidden sm:block">
                     <NavItems />
                 </nav>
+
+                <UserDropdown  />
             </div>
         </header>
     )
