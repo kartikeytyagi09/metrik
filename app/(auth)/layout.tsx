@@ -4,19 +4,25 @@ import {headers} from "next/headers";
 import {redirect} from "next/navigation";
 
 const Layout = async ({ children }: { children : React.ReactNode }) => {
-    const session = await auth.api.getSession({ headers: await headers() })
+    // const session = await auth.api.getSession({ headers: await headers() })
 
-    if(session?.user) redirect('/')
+    // if(session?.user) redirect('/')
 
     return (
-        <main className="auth-layout">
-            <section className="auth-left-section scrollbar-hide-default">
-                <Link href="/" className="auth-logo">
-                    <Image src="/assets/icons/logo.svg" alt="Signalist logo" width={140} height={32} className='h-8 w-auto' />
+        <main className="min-h-screen flex justify-center items-center ">
+            <div className="w-full max-w-md bg-gray-800 rounded-xl shadow-xl p-8 flex flex-col items-center">
+                <Link href="/" className="mb-6">
+                   <Image
+                    src="/assets/icons/logo.svg"
+                    alt="Logo"
+                    width={160}
+                    height={40}
+                    className="w-auto h-10"
+                  />
                 </Link>
-
-                <div className="pb-6 lg:pb-8 flex-1">{children}</div>
-            </section>
+                {/* sign-in/sign-up */}
+                <div className="w-full mt-4">{children}</div>
+            </div>
 
             
         </main>

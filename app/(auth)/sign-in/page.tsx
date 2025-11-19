@@ -37,9 +37,11 @@ const SignIn = () => {
 
     return (
         <>
-            <h1 className="form-title">Welcome back</h1>
+        <div className='flex-col items-center'>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+            <h1 className="">Welcome back</h1>
+
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 flex-col my-8">
                 <InputField
                     name="email"
                     label="Email"
@@ -65,6 +67,7 @@ const SignIn = () => {
 
                 <FooterLink text="Don't have an account?" linkText="Create an account" href="/sign-up" />
             </form>
+            </div>
         </>
     );
 };
