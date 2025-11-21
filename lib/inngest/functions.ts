@@ -34,7 +34,7 @@ export const sendSignUpEmail= inngest.createFunction(
 
             const { data: { email, name } } = event;
 
-            return await sendEmaillogic here({ email, name, intro: introText });
+            // return await sendWelcomeEmail({ email, name, intro: introText });
         })
 
         return {
