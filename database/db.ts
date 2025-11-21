@@ -1,37 +1,29 @@
-import mongoose from 'mongoose';
 
-const MONGODB_URI = process.env.MONGODB_URI;
+import { MongoClient } from "mongodb";
+
+const uri = process.env.MONGODB_URI;
+if (!uri) throw new Error("MONGODB_URI is missing");
+
+let client: MongoClient;
+let clientPromise: Promise<MongoClient>;
 
 declare global {
-    var mongooseCache: {
-        conn: typeof mongoose | null;
-        promise: Promise<typeof mongoose> | null;
-    }
+  var _mongoClientPromise: Promise<MongoClient> | undefined;
 }
 
-let cached = global.mongooseCache;
-
-if(!cached) {
-    cached = global.mongooseCache = { conn: null, promise: null };
+if (process.env.NODE_ENV === "development") {
+  // Reuse the client during hot reloads
+  if (!global._mongoClientPromise) {
+    client = new MongoClient(uri);
+    global._mongoClientPromise = client.connect();
+  }
+  clientPromise = global._mongoClientPromise;
+} else {
+  client = new MongoClient(uri);
+  clientPromise = client.connect();
 }
 
-export const connectToDatabase = async () => {
-    if(!MONGODB_URI) throw new Error('MONGODB_URI unavailable');
-
-    if(cached.conn) return cached.conn;
-
-    if(!cached.promise) {
-        cached.promise = mongoose.connect(MONGODB_URI, { bufferCommands: false });
-    }
-
-    try {
-        cached.conn = await cached.promise;
-    } catch (err) {
-        cached.promise = null;
-        throw err;
-    }
-
-    console.log(`Connected to database ${process.env.NODE_ENV} - ${MONGODB_URI}`);
-
-    return cached.conn;
+export async function connectToDatabase() {
+  const client = await clientPromise;
+  return client.db(); // returns default database from URI
 }
