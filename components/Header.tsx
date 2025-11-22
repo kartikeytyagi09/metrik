@@ -5,9 +5,9 @@ import NavItems from "./NavItems";
 import { auth } from "@/lib/better-auth/auth";
 import { headers } from "next/headers";
 
-const Header = async () => {
-    const session = await auth.api.getSession({ headers: await headers() });
-    const user = session?.user;
+const Header = async ({ user }: { user: User }) => {
+    // const session = await auth.api.getSession({ headers: await headers() });
+    // const user = session?.user;
 
     return (
         <header className="sticky top-0 header">
