@@ -25,3 +25,10 @@ const Layout = async ({ children }: { children : React.ReactNode }) => {
     )
 }
 export default Layout
+
+
+
+// sendDailyNewsSummery
+//watchlist actions.ts
+
+//getwatchlistsymbolsbyemail
