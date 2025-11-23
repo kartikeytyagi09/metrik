@@ -29,6 +29,4 @@ export default Layout
 
 
 // sendDailyNewsSummery
-//watchlist actions.ts
-
 //getwatchlistsymbolsbyemail
