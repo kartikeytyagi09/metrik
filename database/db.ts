@@ -25,5 +25,12 @@ if (process.env.NODE_ENV === "development") {
 
 export async function connectToDatabase() {
   const client = await clientPromise;
-  return client.db(); // returns default database from URI
+  const db = client.db();
+
+  console.log("MongoDB connected:", db.databaseName);
+  // console.log("📦 Collections:");
+  // console.log(await db.listCollections().toArray());
+
+
+  return db;
 }

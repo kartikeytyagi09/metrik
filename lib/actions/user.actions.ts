@@ -8,7 +8,7 @@ export const getAllUserForNewsEmail = async () => {
     if (!db) throw new Error('MongoDB connection failed');
 
     const users = await db
-      .collection('users')
+      .collection('user')
       .find(
         { email: { $exists: true, $ne: null } },
         {
