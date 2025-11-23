@@ -27,9 +27,7 @@ export async function connectToDatabase() {
   const client = await clientPromise;
   const db = client.db();
 
-  console.log("MongoDB connected:", db.databaseName);
-  // console.log("📦 Collections:");
-  // console.log(await db.listCollections().toArray());
+  console.log(" MongoDB connected:", db.databaseName);
 
 
   return db;

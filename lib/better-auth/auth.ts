@@ -11,7 +11,6 @@ export const getAuth = async () => {
     if(authInstance) return authInstance;
 
     const db = await connectToDatabase();
-    console.log(await db.listCollections().toArray());
 
     if(!db) throw new Error('MongoDB connection not found');
 
