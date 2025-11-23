@@ -4,10 +4,10 @@ import UserDropdown from "./UserDropdown";
 import NavItems from "./NavItems";
 import { auth } from "@/lib/better-auth/auth";
 import { headers } from "next/headers";
+import { searchStocks } from "@/lib/actions/finnhub.actions";
 
 const Header = async ({ user }: { user: User }) => {
-    // const session = await auth.api.getSession({ headers: await headers() });
-    // const user = session?.user;
+     const initialStocks = await searchStocks();
 
     return (
         <header className="sticky top-0 header">
@@ -23,7 +23,7 @@ const Header = async ({ user }: { user: User }) => {
                 </Link>
 
                 <nav className="hidden sm:block">
-                    <NavItems />
+                    <NavItems  initialStocks={initialStocks}/>
                 </nav>
 
                 <UserDropdown user={user} />

@@ -35,3 +35,6 @@ export const getAllUserForNewsEmail = async () => {
     return [];
   }
 };
+
+
+// done
