@@ -8,62 +8,45 @@ It delivers a powerful real-time financial dashboard with AI-driven insights, au
 
 - Shadcn-Composable and fully customizable UI components used to build a clean, consistent interface.
 
-Tailwind CSS- Utility-first CSS for fast, responsive, custom styling.
+- Tailwind CSS- Utility-first CSS for fast, responsive, custom styling.
 
-TypeScript- Type-safe development for fewer bugs and more maintainable code.
+-TypeScript- Type-safe development for fewer bugs and more maintainable code.
 
-Better Auth- Framework-agnostic authentication with email/password, OAuth providers (Google, GitHub, Apple), and MFA support.
+-Better Auth- Framework-agnostic authentication with email/password, OAuth providers (Google, GitHub, Apple), and MFA support.
 
-MongoDB- Flexible, JSON-document database powering user data, watchlists, alerts, and stock-related content.
+-MongoDB- Flexible, JSON-document database powering user data, watchlists, alerts, and stock-related content.
 
-Inngest- Event-driven workflows and background jobs for alerts, scheduled digests, real-time updates, and AI-powered processes.
+-Inngest- Event-driven workflows and background jobs for alerts, scheduled digests, real-time updates, and AI-powered processes.
 
-Finnhub API
+-Finnhub API- Real-time market data for stocks, forex, crypto, company fundamentals, and news.
 
-Real-time market data for stocks, forex, crypto, company fundamentals, and news.
+- Nodemailer- Email delivery for alert notifications, updates, and system messages.
 
-Nodemailer
-
-Email delivery for alert notifications, updates, and system messages.
-
-CodeRabbit
-
-AI-powered GitHub code reviewer to maintain code quality across pull requests.
+- Gemini AI- For summarize email alerts and personalize singup email
 
 ##🔋 Features
-📈 Real-Time Stock Dashboard
+
+📈 Real-Time Stock Dashboard- 
 
 Live stock prices with line and candlestick charts
-
 Historical data visualization
-
 Filter by industry, market cap, or performance
 
-🔍 Smart Search
+🔍 Smart Search-
 
 Quickly discover stocks using an optimized, intelligent search engine.
 
-⭐ Watchlist & Alerts
+⭐ Watchlist & Alerts-
 
 Create and manage personal watchlists
-
-Set alerts for price movements or volume spikes
-
 Get instant email notifications
 
-🧠 AI-Powered Insights
+🧠 AI-Powered Insights-
 
 Personalized daily market digests
-
 AI-generated summaries
-
 Automated earnings updates
-
 Sentiment analysis
-
-📊 Company Fundamental Insights
-
-PE ratio, EPS, revenue, filings, analyst ratings, news, and more.
 
 ⚡ Event-Driven Workflows (Inngest)
 
@@ -81,32 +64,14 @@ Notification pipelines
 
 Fully personalized user preferences for alerts and triggers.
 
-🛠️ Admin Dashboard
 
-Manage stocks, news, and insights
-
-Track user activity
-
-View analytics and performance indicators
-
-📡 Analytics & Metrics
-
-Insights into user behavior, stock trends, engagement, and more.
-
-🤸 Quick Start
+## 🤸 Quick Start
 
 Follow these steps to run the project locally.
 
-Prerequisites
-
-Git
-
-Node.js
-
-npm
+Prerequisites- Git, Node.js, npm
 
 1. Clone the Repository
-git clone https://github.com/adrianhajdin/signalist_stock-tracker-app.git
 cd signalist_stock-tracker-app
 
 2. Install Dependencies
@@ -119,27 +84,19 @@ Create a .env file in the project root and add:
 NODE_ENV='development'
 NEXT_PUBLIC_BASE_URL=http://localhost:3000
 
-# FINNHUB
 NEXT_PUBLIC_FINNHUB_API_KEY=
 FINNHUB_BASE_URL=https://finnhub.io/api/v1
 
-# MONGODB
 MONGODB_URI=
 
-# BETTER AUTH
 BETTER_AUTH_SECRET=
 BETTER_AUTH_URL=http://localhost:3000
 
-# GEMINI
 GEMINI_API_KEY=
 
-# NODEMAILER
 NODEMAILER_EMAIL=
 NODEMAILER_PASSWORD=
 
-
-Fill in values from:
-MongoDB, Gemini, Inngest, Finnhub, etc.
 
 4. Start the Development Server
 npm run dev
