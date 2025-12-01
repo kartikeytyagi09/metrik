@@ -24,7 +24,7 @@ It delivers a powerful real-time financial dashboard with AI-driven insights, au
 
 - Gemini AI- For summarize email alerts and personalize singup email
 
-##🔋 Features
+## 🔋 Features
 
 📈 Real-Time Stock Dashboard- 
 
