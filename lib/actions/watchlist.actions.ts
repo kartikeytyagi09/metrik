@@ -1,12 +1,14 @@
 'use server';
 
-import { connectToDatabase } from '@/database/db';
+import { connectToDatabase } from '@/database/mongoose';
 import { Watchlist } from '@/database/models/watchlist.model';
+
 export async function getWatchlistSymbolsByEmail(email: string): Promise<string[]> {
   if (!email) return [];
 
   try {
-    const db = await connectToDatabase();
+    const mongoose = await connectToDatabase();
+    const db = mongoose.connection.db;
     if (!db) throw new Error('MongoDB connection not found');
 
     // Better Auth stores users in the "user" collection

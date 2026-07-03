@@ -28,5 +28,3 @@ const useTradingViewWidget = (scriptUrl: string, config: Record<string, unknown>
     return containerRef;
 }
 export default useTradingViewWidget
-
-

@@ -19,9 +19,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 
 
-## 🚀 Signalist – AI-Powered Real-Time Stock Market Platform
+## 🚀 Metrik – AI-Powered Real-Time Stock Market Platform
 
-Signalist is my modern, full-stack stock market application built with Next.js, Shadcn, Tailwind, Better Auth, Inngest, and MongoDB.
+Metrik is my modern, full-stack stock market application built with Next.js, Shadcn, Tailwind, Better Auth, Inngest, and MongoDB.
 It delivers a powerful real-time financial dashboard with AI-driven insights, automated workflows, personalized alerts, and an admin panel to manage stocks, news, and users.
 
 ## ⚙️ Tech Stack
@@ -93,7 +93,7 @@ Follow these steps to run the project locally.
 Prerequisites- Git, Node.js, npm
 
 1. Clone the Repository
-cd signalist_stock-tracker-app
+cd Metrik_stock-tracker-app
 
 2. Install Dependencies
 npm install

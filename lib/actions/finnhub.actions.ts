@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 'use server';
 
 import { getDateRange, validateArticle, formatArticle } from '@/lib/utils';
@@ -144,7 +143,6 @@ export const searchStocks = cache(async (query?: string): Promise<StockWithWatch
           // We don't include exchange in FinnhubSearchResult type, so carry via mapping later using profile
           // To keep pipeline simple, attach exchange via closure map stage
           // We'll reconstruct exchange when mapping to final type
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           (r as any).__exchange = exchange; // internal only
           return r;
         })
@@ -181,4 +179,3 @@ export const searchStocks = cache(async (query?: string): Promise<StockWithWatch
   }
 });
 
-// ai gen file

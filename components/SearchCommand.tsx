@@ -1,4 +1,4 @@
-'use client';
+"use client"
 
 import { useEffect, useState } from "react"
 import { CommandDialog, CommandEmpty, CommandInput, CommandList } from "@/components/ui/command"
@@ -6,18 +6,17 @@ import {Button} from "@/components/ui/button";
 import {Loader2,  TrendingUp} from "lucide-react";
 import Link from "next/link";
 import {searchStocks} from "@/lib/actions/finnhub.actions";
-import { useDebounce } from "@/hooks/useDebounce";
+import {useDebounce} from "@/hooks/useDebounce";
 
-function SearchCommand({renderAs='button', label='Add Stock', initialStocks}:SearchCommandProps) {
+export default function SearchCommand({ renderAs = 'button', label = 'Add stock', initialStocks }: SearchCommandProps) {
   const [open, setOpen] = useState(false)
-  const [searchBar, setSearchBar] = useState("")
+  const [searchTerm, setSearchTerm] = useState("")
   const [loading, setLoading] = useState(false)
   const [stocks, setStocks] = useState<StockWithWatchlistStatus[]>(initialStocks);
 
-  const isSearchMode = !!searchBar.trim();
+  const isSearchMode = !!searchTerm.trim();
   const displayStocks = isSearchMode ? stocks : stocks?.slice(0, 10);
 
-//????
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
@@ -29,13 +28,12 @@ function SearchCommand({renderAs='button', label='Add Stock', initialStocks}:Sea
     return () => window.removeEventListener("keydown", onKeyDown)
   }, [])
 
-
-  const handleSearch=async ()=>{
+  const handleSearch = async () => {
     if(!isSearchMode) return setStocks(initialStocks);
 
     setLoading(true)
     try {
-        const results = await searchStocks(searchBar.trim());
+        const results = await searchStocks(searchTerm.trim());
         setStocks(results);
     } catch {
       setStocks([])
@@ -46,13 +44,13 @@ function SearchCommand({renderAs='button', label='Add Stock', initialStocks}:Sea
 
   const debouncedSearch = useDebounce(handleSearch, 300);
 
-  useEffect(()=>{
+  useEffect(() => {
     debouncedSearch();
-  },[searchBar]);
+  }, [searchTerm]);
 
-  const handleSelectStock=()=>{
+  const handleSelectStock = () => {
     setOpen(false);
-    setSearchBar("")
+    setSearchTerm("");
     setStocks(initialStocks);
   }
 
@@ -69,7 +67,7 @@ function SearchCommand({renderAs='button', label='Add Stock', initialStocks}:Sea
       )}
       <CommandDialog open={open} onOpenChange={setOpen} className="search-dialog">
         <div className="search-field">
-          <CommandInput value={searchBar} onValueChange={setSearchBar} placeholder="Search stocks..." className="search-input" />
+          <CommandInput value={searchTerm} onValueChange={setSearchTerm} placeholder="Search stocks..." className="search-input" />
           {loading && <Loader2 className="search-loader" />}
         </div>
         <CommandList className="search-list">
@@ -113,5 +111,3 @@ function SearchCommand({renderAs='button', label='Add Stock', initialStocks}:Sea
     </>
   )
 }
-
-export default SearchCommand
