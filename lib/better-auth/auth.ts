@@ -26,7 +26,7 @@ export const getAuth = async () => {
             autoSignIn: true,
         },
         plugins: [nextCookies()],
-    });
+    }) as any;
 
     return authInstance;
 }

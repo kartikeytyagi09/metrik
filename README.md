@@ -125,5 +125,7 @@ npm run dev
 5. Run Inngest
 npx inngest-cli@latest dev
 
+http://localhost:8288/runs 
+
 6. Open the App
 http://localhost:3000
