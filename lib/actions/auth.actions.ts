@@ -20,6 +20,7 @@ export const signUpWithEmail = async ({ email, password, fullName, country, inve
         console.log('Sign up failed', e)
         return { success: false, error: 'Sign up failed' }
     }
+    
 }
 
 export const signInWithEmail = async ({ email, password }: SignInFormData) => {
