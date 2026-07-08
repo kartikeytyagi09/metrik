@@ -15,10 +15,10 @@ export const sendWelcomeEmail = async ({ email, name, intro }: WelcomeEmailData)
         .replace('{{intro}}', intro);
 
     const mailOptions = {
-        from: `"Metrik" <Metrik@metrik.app>`,
+        from: `"Signalist" <Signalist@Signalist.app>`,
         to: email,
-        subject: `Welcome to Metrik - your stock market toolkit is ready!`,
-        text: 'Thanks for joining Metrik',
+        subject: `Welcome to Signalist - your stock market toolkit is ready!`,
+        text: 'Thanks for joining Signalist',
         html: htmlTemplate,
     }
 
@@ -33,10 +33,10 @@ export const sendNewsSummaryEmail = async (
         .replace('{{newsContent}}', newsContent);
 
     const mailOptions = {
-        from: `"Metrik News" <Metrik@metrik.app>`,
+        from: `"Signalist News" <Signalist@Signalist.app>`,
         to: email,
         subject: `📈 Market News Summary Today - ${date}`,
-        text: `Today's market news summary from Metrik`,
+        text: `Today's market news summary from Signalist`,
         html: htmlTemplate,
     };
 
